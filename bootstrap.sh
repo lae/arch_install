@@ -14,9 +14,10 @@ genfstab -p $INSTALL_DIR >> $INSTALL_DIR/etc/fstab
 
 cp $WORK_DIR/chroot.sh $INSTALL_DIR
 chmod +x $INSTALL_DIR/chroot.sh
-cp $WORK_DIR/locale.gen $INSTALL_DIR/etc/locale.gen
+cp  $WORK_DIR/locale.gen $INSTALL_DIR/etc/locale.gen
 cp $WORK_DIR/lae.authorized_key $INSTALL_DIR
+cp $WORK_DIR/chroot_as_lae.sh $INSTALL_DIR
 arch-chroot $INSTALL_DIR /chroot.sh
-rm $INSTALL_DIR/chroot.sh $INSTALL_DIR/lae.authorized_key
+rm $INSTALL_DIR/{chroot.sh,lae.authorized_key,chroot_as_lae.sh}
 
 cp $WORK_DIR/lae.sudo $INSTALL_DIR/etc/sudoers.d/lae
