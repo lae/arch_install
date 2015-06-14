@@ -15,3 +15,4 @@ mkdir -m 0700 ~lae/.ssh
 touch ~lae/.ssh/authorized_keys
 chmod 700 ~lae/.ssh/authorized_keys
 cat /lae.authorized_key >> ~lae/.ssh/authorized_keys
+chown -R lae: ~lae
