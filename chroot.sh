@@ -4,7 +4,7 @@ echo koto > /etc/hostname
 
 locale-gen
 echo LANG=en_US.UTF-8 > /etc/locale.conf
-ln -s /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
+ln -sv /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 
 mkinitcpio -p linux
 
