@@ -5,6 +5,9 @@ INSTALL_DIR=/mnt
 
 pacman -Sy --noconfirm git
 git clone --depth=1 https://github.com/lae/arch_install.git $WORK_DIR
+if [ $? -ne 0 ]; then
+    cd $WORK_DIR && git pull
+fi
 
 cp -v $WORK_DIR/mirrorlist /etc/pacman.d/mirrorlist
 
