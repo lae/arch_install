@@ -9,6 +9,12 @@ if [ $? -ne 0 ]; then
     cd $WORK_DIR && git pull
 fi
 
+if [ "x$1" != "x" ]; then
+    echo "$1" > $INSTALL_DIR/hostname
+else
+    echo koto > $INSTALL_DIR/hostname
+fi
+
 cp -v $WORK_DIR/mirrorlist /etc/pacman.d/mirrorlist
 
 pacstrap $INSTALL_DIR base openssh python sudo
@@ -17,6 +23,8 @@ genfstab -p $INSTALL_DIR >> $INSTALL_DIR/etc/fstab
 
 cp -av $WORK_DIR/chroot.sh $INSTALL_DIR
 cp -v $WORK_DIR/chroot_as_lae.sh $INSTALL_DIR
+
+cp -v $WORK_DIR/hostname $INSTALL_DIR/hostname
 cp -v $WORK_DIR/locale.gen $INSTALL_DIR/etc/locale.gen
 cp -v $WORK_DIR/lae.authorized_key $INSTALL_DIR
 arch-chroot $INSTALL_DIR /chroot.sh
