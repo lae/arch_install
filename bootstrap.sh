@@ -17,6 +17,12 @@ fi
 
 cp -v $WORK_DIR/mirrorlist /etc/pacman.d/mirrorlist
 
+if ! $(mountpoint -q -- $INSTALL_DIR); then
+    echo "$INSTALL_DIR isn't a mountpoint. Are you sure you want to install here?"
+    echo "Remove this test from the script if so."
+    exit
+fi
+
 pacstrap $INSTALL_DIR base openssh python sudo
 
 genfstab -p $INSTALL_DIR >> $INSTALL_DIR/etc/fstab
