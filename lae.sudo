@@ -1,1 +1,1 @@
-lae ALL=(ALL) NOPASSWD: ALL
+lae ALL=(ALL) ALL: ALL

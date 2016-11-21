@@ -23,7 +23,7 @@ if ! $(mountpoint -q -- $INSTALL_DIR); then
     exit
 fi
 
-pacstrap $INSTALL_DIR base openssh python sudo
+pacstrap $INSTALL_DIR base openssh python sudo vim
 
 genfstab -p $INSTALL_DIR >> $INSTALL_DIR/etc/fstab
 
