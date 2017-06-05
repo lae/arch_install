@@ -3,6 +3,7 @@
 WORK_DIR=/tmp/installer
 INSTALL_DIR=/mnt
 
+mkdir -P $WORK_DIR
 curl -sL https://github.com/lae/arch_install/archive/master.tar.gz | tar -C $WORK_DIR --strip-components=1 -xvz
 
 if [ "x$1" != "x" ]; then
