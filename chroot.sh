@@ -1,7 +1,8 @@
 #!/bin/bash -x
 
 locale-gen
-echo LANG=en_US.UTF-8 > /etc/locale.conf
+echo LANG=ja_JP.UTF-8 > /etc/locale.conf
+echo LANG=ja_JP.UTF-8 >> /etc/environment.conf
 ln -sv /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 
 mkinitcpio -p linux
