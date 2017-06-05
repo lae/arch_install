@@ -3,11 +3,7 @@
 WORK_DIR=/tmp/installer
 INSTALL_DIR=/mnt
 
-pacman -Sy --noconfirm git
-git clone --depth=1 https://github.com/lae/arch_install.git $WORK_DIR
-if [ $? -ne 0 ]; then
-    cd $WORK_DIR && git pull
-fi
+curl -sL https://github.com/lae/arch_install/archive/master.tar.gz | tar -C $WORK_DIR --strip-components=1 -xvz
 
 if [ "x$1" != "x" ]; then
     echo "$1" > $WORK_DIR/hostname
